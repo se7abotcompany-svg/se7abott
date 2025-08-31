@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Poppins", serif;
+}
+
+body{
+    background-color: rgb(7, 0, 29);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 0 0.7rem;
+    max-width: 1200px;
+}
+
+.navigation ul{
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+.navigation a:hover {
+    color: #00adb5;
+}
+
+hr{
+    opacity: 10%;
+}
+
+button{
+    background-color: #00adb5;
+    color: #eeeeee;
+    border-radius: 24rem;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+button:hover{
+    transform: scale(1.1)
+}
+
+.WelcometoSe7aBot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem auto;
+    max-width: 1200px;
+}
+
+.arrow{
+    position: absolute;
+    transform: translateX(-5.5rem) translateY(1.5rem);
+}
+
+.se7asub{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.welcome{
+    font-size: 3rem;
+    color: #eeeeee;
+}
+
+.name{
+    font-size: 8rem;
+    color: #00adb5;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/A.main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="js" href="javascript/A.main.js">
+    <link rel="icon" type="Images/Icon/icon" href="Images/Icon/icon.png">
+    <title>صحة بوت</title>   
+</head>
+<body>
+    <header>
+        <img src="Images/Icon/icon.png" alt="">
+        <nav class="navigation">
+            <ul>
+                <li><a href="A.main.html">المنزل</a></li>
+                <li><a href="A.more.html">المزيد من المعلومات</a></li>
+                <li><a href="A.contact.html">التواصل معنا</a></li>
+            </ul>
+        </nav>
+        <nav class="loginandsignup">
+            <!-- New button to toggle the auth UI on mobile -->
+            <button id="toggle-auth-ui-btn">☰</button>
+            
+            <div id="main-ui">
+                <!-- Main button container -->
+                <div id="main-buttons">
+                    <button class="toggle-btn box-lightning" id="toggle-login-btn">تسجيل الدخول</button>
+                    <button class="toggle-btn box-lightning" id="toggle-signup-btn">اشتراك</button>
+                </div>
+              
+                <!-- User info container, initially hidden -->
+                <div id="user-info-container" class="user-info-container hidden">
+                    <div id="user-avatar"></div>
+                    <button class="toggle-btn" id="logout-btn">تسجيل الخروج</button>
+                </div>
+               
+                <!-- New button to open account details -->
+                <div id="account-buttons-container" class="hidden">
+                    <button class="toggle-btn" id="toggle-account-details-btn">View Account Details</button>
+                </div>
+
+                <!-- Welcome message container -->
+                <div id="welcome-message" class="message hidden"></div>
+            </div>
+          
+            <!-- The login form popup -->
+            <div id="login-form-container" class="popup-container container">
+                <span class="close-btn" id="close-login-btn">X</span>
+                <h2>تسجيل الدخل</h2>
+                <form id="login-form-content">
+                    <div class="form-group">
+                        <label for="login-username">اسم المستخدم</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group password-container">
+                        <label for="login-password">الباسورد</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <a href="#" class="forgot-link" id="forgot-password-link">هل نسيت الباسورد؟</a>
+                    <button type="submit">Login</button>
+                    <div id="login-message" class="message"></div>
+                    <div class="create-account-link">
+                        ليس لديك حساب؟ <a href="#" id="create-account-link">Sign up</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- The sign-up form popup -->
+            <div id="signup-form-container" class="popup-container container">
+                <span class="close-btn" id="close-signup-btn">X</span>
+                <h2>Sign Up</h2>
+                <form id="signup-form-content">
+                    <div class="form-group">
+                        <label for="signup-name">اسمك الكامل</label>
+                        <input type="text" id="signup-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-place">مكانك</label>
+                        <input type="text" id="signup-place" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-birthday">متى عيدميلادك</label>
+                        <input type="date" id="signup-birthday" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-phone">رقم الهاتف</label>
+                        <input type="tel" id="signup-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-username">اسم المستخدم</label>
+                        <input type="text" id="signup-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">إيمال</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    <div class="form-group password-container">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required>
+                        <div class="password-toggle-text-container">
+                            <span>إظهار الباسورد؟</span>
+                            <span class="toggle-option" id="signup-toggle-yes">Yes</span>
+                            <span class="toggle-option selected" id="signup-toggle-no">No</span>
+                        </div>
+                    </div>
+                    <button type="submit">اشتراك</button>
+                    <div id="signup-message" class="message"></div>
+                </form>
+            </div>
+        </nav>
+    </header>
+     <hr />
+
+
+<section class="logoofai">
+    <div class="logo">
+    <h1 class="welcome">اهلا بك</h1>
+    <h1 class="to">في</h1>
+    <h1 class="aihealthchatbot">ذكاء اصطناعي عن الصحة</h1>
+    </div>
+</section>
+
+
+<section class="app-body">
+
+    <!-- ده المكان اللي هتظهر فيه كل رسايل الشات (رسايلك ورسايل الذكاء الاصطناعي). -->
+    <div id="chat-container" class="chat-container">
+    </div>
+
+    <!-- الـ div ده بيظهر لما الذكاء الاصطناعي بيكون بيفكر في الرد، وبيختفي لما الرد يوصل. -->
+    <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="flex-shrink-0">
+            <svg class="w-8 h-8 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 2c5.523 0 10 4.477 10 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-spin-custom" />
+            </svg>
+        </div>
+        <div class="flex-1 text-black">
+            <p class="font-semibold capitalize">AI</p>
+            <p>Thinking...</p>
+        </div>
+    </div>
+
+    <!-- الـ div ده بيحتوي على خانة الكتابة وزرار الإرسال. -->
+    <div class="input-area">
+        <div class="flex items-center gap-2">
+            <!-- دي الخانة اللي المستخدم بيكتب فيها الرسالة. -->
+            <input
+                type="text"
+                id="message-input"
+                class="message-input"
+                placeholder="Type your health question..."
+            />
+            <!-- ده الزرار اللي بيضغط عليه المستخدم عشان يبعت الرسالة. -->
+            <button
+                id="send-button"
+                class="send-button"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <link rel="js" href="javascript/se7abotmypart.js">
+</section>
+
+<section class="all">
+    <h1>© 2025 جميع الحقوق محفوظة لشركة صحة بوت</h1>
+</section>
+
+
+</body>

@@ -1,0 +1,149 @@
+ /*
+        * يا يوسف، ده دليل ليك عشان تعدل في الـ CSS بتاع الشات بوت
+        *
+        * القسم ده فيه كل الـ classes بتاعة الـ CSS اللي بنستخدمها في التطبيق.
+        * ممكن تعدل في الـ styles دي براحتك عشان تغير شكل التطبيق بالكامل.
+        */
+
+        /* دي الـ styles الأساسية للجسم بتاع الصفحة كله. */
+        .app-body {
+            background-color: #f3f4f6;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* ده الـ container بتاع رسايل الشات، و بيسمح لها إنها تتحرك لفوق و لتحت (scrolling). */
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            height: calc(100vh - 8rem);
+        }
+
+        /* دي الـ styles لكل رسالة شات لوحدها. */
+        .chat-message {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* دي الـ styles الخاصة برسايل المستخدم. */
+        .chat-message.user {
+            background-color: #dbeafe;
+            margin-left: auto;
+        }
+        
+        /* دي الـ styles الخاصة برسايل الذكاء الاصطناعي. */
+        .chat-message.ai {
+            background-color: #ffffff;
+            margin-right: auto;
+        }
+
+        /* دي الـ styles بتاعت علامة التحميل (spinner)، و هي بتبقى مخفية في البداية. */
+        .loading-spinner {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            align-self: flex-start;
+            margin-right: auto;
+        }
+        .loading-spinner.hidden {
+            display: none;
+        }
+
+        /* دي الـ animation بتاعة أيقونة التحميل عشان تخليها تلف. */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-custom {
+            animation: spin 1s linear infinite;
+        }
+
+        /* ده الـ container اللي فيه خانة الكتابة و زرار الإرسال. */
+        .input-area {
+            padding: 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        /* دي الـ styles بتاعت خانة الكتابة. */
+       .message-input {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    color: #000000; 
+}
+        .message-input:focus {
+            ring-width: 2px;
+            ring-color: #3b82f6;
+        }
+
+        /* دي الـ styles بتاعت زرار الإرسال. */
+        .send-button {
+            padding: 0.75rem;
+            background-color: #3b82f6;
+            color: #ffffff;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s ease-in-out;
+        }
+        .send-button:hover {
+            background-color: #2563eb;
+        }
+        .send-button:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        /* دي الـ styles البسيطة للـ scrollbar عشان يكون شكله أحسن. */
+        .chat-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chat-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .chat-container::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        
+        /* ده الـ container الجديد بتاع شريط الخطورة اللي اتفقنا عليه. */
+        .danger-bar-container {
+            width: 100%;
+            height: 10px;
+            background-color: #e5e7eb;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        /* ده الشريط اللي بيملى الـ container وبيتحرك بالـ animation. */
+        .danger-bar-fill {
+            height: 100%;
+            width: 0; /* يبدأ من صفر ويتحرك بالـ JS */
+            background-image: linear-gradient(to right, #4ade80, #facc15, #ef4444);
+            transition: width 1s ease-in-out;
+        }
+
+        /* دي الـ styles الخاصة بالـ label فوق الشريط. */
+        .danger-label {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #4b5563;
+            margin-top: 5px;
+        }

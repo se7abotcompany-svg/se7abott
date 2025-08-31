@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/A.contact.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="js" href="javascript/A.contact.js">
+    <link rel="icon" type="Images/Icon/icon" href="Images/Icon/icon.png">
+    <title>صحة بوت</title>
+</head>
+<body>
+    <header>
+        <img src="Images/Icon/icon.png" alt="">
+        <nav class="navigation">
+            <ul>
+                <li><a href="A.main.html">المنزل</a></li>
+                <li><a href="A.more.html">المزيد من المعلومات</a></li>
+                <li><a href="A.contact.html">التواصل معنا</a></li>
+            </ul>
+        </nav>
+         <nav class="loginandsignup">
+            <!-- New button to toggle the auth UI on mobile -->
+            <button id="toggle-auth-ui-btn">☰</button>
+            
+            <div id="main-ui">
+                <!-- Main button container -->
+                <div id="main-buttons">
+                    <button class="toggle-btn box-lightning" id="toggle-login-btn">تسجيل الدخول</button>
+                    <button class="toggle-btn box-lightning" id="toggle-signup-btn">اشتراك</button>
+                </div>
+              
+                <!-- User info container, initially hidden -->
+                <div id="user-info-container" class="user-info-container hidden">
+                    <div id="user-avatar"></div>
+                    <button class="toggle-btn" id="logout-btn">تسجيل الخروج</button>
+                </div>
+               
+                <!-- New button to open account details -->
+                <div id="account-buttons-container" class="hidden">
+                    <button class="toggle-btn" id="toggle-account-details-btn">View Account Details</button>
+                </div>
+
+                <!-- Welcome message container -->
+                <div id="welcome-message" class="message hidden"></div>
+            </div>
+          
+            <!-- The login form popup -->
+            <div id="login-form-container" class="popup-container container">
+                <span class="close-btn" id="close-login-btn">X</span>
+                <h2>تسجيل الدخل</h2>
+                <form id="login-form-content">
+                    <div class="form-group">
+                        <label for="login-username">اسم المستخدم</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group password-container">
+                        <label for="login-password">الباسورد</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <a href="#" class="forgot-link" id="forgot-password-link">هل نسيت الباسورد؟</a>
+                    <button type="submit">Login</button>
+                    <div id="login-message" class="message"></div>
+                    <div class="create-account-link">
+                        ليس لديك حساب؟ <a href="#" id="create-account-link">Sign up</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- The sign-up form popup -->
+            <div id="signup-form-container" class="popup-container container">
+                <span class="close-btn" id="close-signup-btn">X</span>
+                <h2>Sign Up</h2>
+                <form id="signup-form-content">
+                    <div class="form-group">
+                        <label for="signup-name">اسمك الكامل</label>
+                        <input type="text" id="signup-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-place">مكانك</label>
+                        <input type="text" id="signup-place" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-birthday">متى عيدميلادك</label>
+                        <input type="date" id="signup-birthday" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-phone">رقم الهاتف</label>
+                        <input type="tel" id="signup-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-username">اسم المستخدم</label>
+                        <input type="text" id="signup-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">إيمال</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    <div class="form-group password-container">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required>
+                        <div class="password-toggle-text-container">
+                            <span>إظهار الباسورد؟</span>
+                            <span class="toggle-option" id="signup-toggle-yes">Yes</span>
+                            <span class="toggle-option selected" id="signup-toggle-no">No</span>
+                        </div>
+                    </div>
+                    <button type="submit">اشتراك</button>
+                    <div id="signup-message" class="message"></div>
+                </form>
+            </div>
+        </nav>
+    </header>
+     <hr />
+
+
+<section class="contactus">
+    <div class="contact">
+        <h1 class="main">تواصل معنا</h1>
+        <hr />
+        <h1 class="help">لإي مشاكل</h1>
+        <h1 class="In">هنا</h1>
+    </div>
+</section>
+
+<section class="accounts">
+    <div class="account">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to= se7abot.company@gmail.com" class="suport-button">se7abot.company@gmail.com</a>
+    </div>
+</section>
+
+<hr />
+
+<section class="all">
+    <h1>© 2025 جميع الحقوق محفوظة لشركة صحة بوت</h1>
+</section>
